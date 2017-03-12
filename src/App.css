@@ -66,12 +66,15 @@
 }
 
 .my-text {
-    font-family: "Courier New";
     font-weight: bold;
     color: #fff;
 }
 
-.input-text {
+.my-align-right {
+    text-align : right;
+}
+
+.input-text, select {
     width: 150px;
     padding: 12px 20px;
     margin: 8px 0;

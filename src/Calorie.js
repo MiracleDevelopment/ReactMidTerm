@@ -1,10 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
 
 export class Calories extends Component {
 
-// It's a data format example.
+    static propTypes = {
+        language: PropTypes.string.isRequired,
+    }
+
     state = {
         value: 0,
         listEat: []
@@ -18,6 +21,7 @@ export class Calories extends Component {
         {
             list[i].id = i;
         }
+
         this.setState({listEat: list});
     }
 
@@ -697,6 +701,23 @@ export class Calories extends Component {
                         {Name: "ไอศกรีมเรซิน	1 ก้อน	", Calories: 264 }
                        ];
 
+        var _name_header;
+        var _name;
+        var _cal;
+
+        if(this.props.language == "EN")
+        {
+            _name_header = "Name - double click to select menu"
+            _name = "Name";
+            _cal = "Calories";
+        }
+        else
+        {
+            _name_header = "ชื่ออาหาร - ดับเบิ้ลคลิกเพื่อเพิ่มรายการ"
+            _name = "ชื่ออาหาร";
+            _cal = "พลังงาน";
+        }
+
         function priceFormatter(cell, row)
         {
             return '<i class="glyphicon glyphicon-flash"></i> ' + cell;
@@ -745,8 +766,8 @@ export class Calories extends Component {
                     {/*Table*/}
                     <div className="col-md-7 is-background">
                         <BootstrapTable data={products} hover={false} selectRow={selectRow} search={true} options={options} pagination trClassName="my-table" headerStyle={{background: '#fff', color: '#000'}}>
-                            <TableHeaderColumn dataField="Name" isKey={true} dataSort={true}>Name - double click to select menu</TableHeaderColumn>
-                            <TableHeaderColumn dataField="Calories" width="100" dataSort={true} dataFormat={priceFormatter}>Calories</TableHeaderColumn>
+                            <TableHeaderColumn dataField="Name" isKey={true} dataSort={true}>{_name_header}</TableHeaderColumn>
+                            <TableHeaderColumn dataField="Calories" width="100" dataSort={true} dataFormat={priceFormatter}>{_cal}</TableHeaderColumn>
                         </BootstrapTable>
                     </div>
 
@@ -754,8 +775,8 @@ export class Calories extends Component {
                     <div className="col-md-5">
                         <BootstrapTable data={this.state.listEat} insertRow={true} deleteRow={ true } selectRow={ selectRowProp } options={options_eat} trClassName="my-table" headerStyle={{background: '#fff', color: '#000'}}>
                             <TableHeaderColumn dataField="id" isKey={true} autoValue={true} hidden={true}>id</TableHeaderColumn>
-                            <TableHeaderColumn dataField="Name" dataSort={true}>Name</TableHeaderColumn>
-                            <TableHeaderColumn dataField="Calories" dataSort={true}>Calories ({summary})</TableHeaderColumn>
+                            <TableHeaderColumn dataField="Name" dataSort={true}>{_name}</TableHeaderColumn>
+                            <TableHeaderColumn dataField="Calories" dataSort={true}>{_cal} ({summary})</TableHeaderColumn>
                         </BootstrapTable>
                     </div>
                 </div>
