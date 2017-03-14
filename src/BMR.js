@@ -71,11 +71,11 @@ export class BMR extends Component
         {
             _header = "BMR Calculator";
             _weight = "Weight";
-            _height = "Height";
+            _height = "Height  ";
             _age = "Age";
             _male = "Male";
             _female = "Female";
-            _gender = "Gender";
+            _gender = "Gender ";
 
             _bmr = "BMR";
             _kg = "Kg.";
@@ -87,7 +87,7 @@ export class BMR extends Component
             _header = "คำนวน การเผาผลาญพลังงาน";
             _weight = "น้ำหนัก";
             _height = "ส่วนสูง";
-            _gender = "เพศ";
+            _gender = "ระบุเพศ";
             _age = "อายุ";
             _male = "ชาย";
             _female = "หญิง";
@@ -103,24 +103,26 @@ export class BMR extends Component
         }
 
         return (
-            <div className="App anim_all my-panel">
+            <div className="App anim_all my-panel my-container">
+
                 <h1 className="my-text">{_header}</h1>
+
                 <h4 className="">
                     <span className="my-text">{_gender}</span>&nbsp;&nbsp;
 
-                    <select onChange={this.OnGender}>
+                    <select className="my-text" style={{color:'black'}} onChange={this.OnGender}>
                         <option value="0">{_male}</option>
                         <option value="1">{_female}</option>
                     </select>
 
                     <span className="my-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 </h4>
-
+                
                 <h4 className="my-text">{_age}&nbsp;&nbsp;<input type="number" className="input-text" value={this.state.age} onChange={this.OnAge}/>&nbsp;&nbsp;&nbsp;</h4>
                 <h4 className="my-text">{_weight}&nbsp;&nbsp;<input type="number" className="input-text" value={this.state.weight} onChange={this.OnWeight}/>&nbsp;&nbsp;&nbsp;{_kg}</h4>
                 <h4 className="my-text">{_height}&nbsp;&nbsp;<input type="number" className="input-text" value={this.state.height} onChange={this.OnHeight}/>&nbsp;&nbsp;&nbsp;{_cm}</h4>
 
-                <button type="button" className="btn btn-success" onClick={this.OnCalculate}>{_calculate}</button>
+                <button type="button" className="btn btn-primary" onClick={this.OnCalculate}>{_calculate}</button>
 
                 {renderer}
 

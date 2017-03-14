@@ -30,7 +30,7 @@
 }
 
 .anim_all {
-    animation-name: fading, sliding, margining;
+    animation-name: fading, margining;
     animation-duration: 0.5s;
 }
 
@@ -44,6 +44,10 @@
     border-color: #000;
 }
 
+.my-black-05 {
+    background-color: rgba(0,0,0,0)
+}
+
 .my-panel {
     padding-left: 30%;
     padding-right: 30%;
@@ -55,23 +59,35 @@
     background-color: #fff;
 }
 
-.my-table {
-    background-color: rgba(255,255,255,0.7);
-    color: #000;
-    border-color: #000;
-}
 
 .my-table-select {
     background-color: rgba(150,150,150,1);
 }
 
 .my-text {
-    font-weight: bold;
     color: #fff;
+    font-family: 'supermarket';
 }
 
 .my-align-right {
     text-align : right;
+}
+
+.my-container {
+
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 10px;
+    border: 5px solid rgba(0, 0, 0, 0.5);
 }
 
 .input-text, select {
@@ -89,10 +105,184 @@ input[type=text], input[type=button], input[type=number] button {
     background-color: rgba(255,255,255, 1);
 }
 
-BootstrapTable, tr, table, th, td {
-    border-color: #f00
+.my-padding-top-5 { padding-top: 5px; }
+.my-padding-top-10 { padding-top: 10px; }
+.my-padding-top-15 { padding-top: 15px; }
+.my-padding-top-20 { padding-top: 20px; }
+.my-padding-top-30 { padding-top: 30px; }
+.my-padding-top-40 { padding-top: 40px; }
+.my-padding-top-50 { padding-top: 50px; }
+.my-padding-top-60 { padding-top: 60px; }
+.my-padding-top-70 { padding-top: 70px; }
+.my-padding-top-80 { padding-top: 80px; }
+.my-padding-top-90 { padding-top: 90px; }
+.my-padding-top-100 { padding-top: 100px; }
+
+.my-padding-left-10 { padding-left: 10px; }
+.my-padding-left-20 { padding-left: 20px; }
+.my-padding-left-30 { padding-left: 30px; }
+.my-padding-left-40 { padding-left: 40px; }
+.my-padding-left-50 { padding-left: 50px; }
+.my-padding-left-60 { padding-left: 60px; }
+.my-padding-left-70 { padding-left: 70px; }
+.my-padding-left-80 { padding-left: 80px; }
+.my-padding-left-90 { padding-left: 90px; }
+.my-padding-left-100 { padding-left: 100px; }
+
+.my-padding-right-10 { padding-right: 10px; }
+.my-padding-right-20 { padding-right: 20px; }
+.my-padding-right-30 { padding-right: 30px; }
+.my-padding-right-40 { padding-right: 40px; }
+.my-padding-right-50 { padding-right: 50px; }
+.my-padding-right-60 { padding-right: 60px; }
+.my-padding-right-70 { padding-right: 70px; }
+.my-padding-right-80 { padding-right: 80px; }
+.my-padding-right-90 { padding-right: 90px; }
+.my-padding-right-100 { padding-right: 100px; }
+
+.my-padding-bottom-10 { padding-bottom: 10px; }
+.my-padding-bottom-20 { padding-bottom: 20px; }
+.my-padding-bottom-30 { padding-bottom: 30px; }
+.my-padding-bottom-40 { padding-bottom: 40px; }
+.my-padding-bottom-50 { padding-bottom: 50px; }
+.my-padding-bottom-60 { padding-bottom: 60px; }
+.my-padding-bottom-70 { padding-bottom: 70px; }
+.my-padding-bottom-80 { padding-bottom: 80px; }
+.my-padding-bottom-90 { padding-bottom: 90px; }
+.my-padding-bottom-100 { padding-bottom: 100px; }
+
+.my-margin-top-10 { margin-top: 10px; }
+.my-margin-top-15 { margin-top: 15px; }
+.my-margin-top-20 { margin-top: 20px; }
+.my-margin-top-30 { margin-top: 30px; }
+.my-margin-top-40 { margin-top: 40px; }
+.my-margin-top-50 { margin-top: 50px; }
+.my-margin-top-60 { margin-top: 60px; }
+.my-margin-top-70 { margin-top: 70px; }
+.my-margin-top-80 { margin-top: 80px; }
+.my-margin-top-90 { margin-top: 90px; }
+.my-margin-top-100 { margin-top: 100px; }
+
+.my-margin-left-10 { margin-left: 10px; }
+.my-margin-left-20 { margin-left: 20px; }
+.my-margin-left-30 { margin-left: 30px; }
+.my-margin-left-40 { margin-left: 40px; }
+.my-margin-left-50 { margin-left: 50px; }
+.my-margin-left-60 { margin-left: 60px; }
+.my-margin-left-70 { margin-left: 70px; }
+.my-margin-left-80 { margin-left: 80px; }
+.my-margin-left-90 { margin-left: 90px; }
+.my-margin-left-100 { margin-left: 100px; }
+
+.my-margin-right-10 { margin-right: 10px; }
+.my-margin-right-20 { margin-right: 20px; }
+.my-margin-right-30 { margin-right: 30px; }
+.my-margin-right-40 { margin-right: 40px; }
+.my-margin-right-50 { margin-right: 50px; }
+.my-margin-right-60 { margin-right: 60px; }
+.my-margin-right-70 { margin-right: 70px; }
+.my-margin-right-80 { margin-right: 80px; }
+.my-margin-right-90 { margin-right: 90px; }
+.my-margin-right-100 { margin-right: 100px; }
+
+.my-margin-bottom-10 { margin-bottom: 10px; }
+.my-margin-bottom-20 { margin-bottom: 20px; }
+.my-margin-bottom-30 { margin-bottom: 30px; }
+.my-margin-bottom-40 { margin-bottom: 40px; }
+.my-margin-bottom-50 { margin-bottom: 50px; }
+.my-margin-bottom-60 { margin-bottom: 60px; }
+.my-margin-bottom-70 { margin-bottom: 70px; }
+.my-margin-bottom-80 { margin-bottom: 80px; }
+.my-margin-bottom-90 { margin-bottom: 90px; }
+.my-margin-bottom-100 { margin-bottom: 100px; }
+
+.my-text-size-30 {
+    font-size: 20px;
 }
 
+.text-align-left {
+    position: left;
+    text-align: left;
+    vertical-align: middle;
+}
+.text-align-right {
+    position: absolute;
+    right: 0px;
+}
+.text-align-center {text-align: center}
+
+/*============ Table Style ============*/
+
+/*header*/
+.table > caption + thead > tr:first-child > th, .table > colgroup + thead > tr:first-child > th, .table > thead:first-child > tr:first-child > th, .table > caption + thead > tr:first-child > td, .table > colgroup + thead > tr:first-child > td, .table > thead:first-child > tr:first-child > td {
+    /*background-color: #ddcc66;*/
+    /*border-color: #dd8500;*/
+    border-color: #ccc;
+    background-color: rgba(255,255,255,0);
+    border-left-width: 0px;
+    border-right-width: 0px;
+}
+
+/*border*/
+div .react-bs-table {
+    border: 0px solid #fff;
+    background-color: rgba(0,0,0,0);
+    color: #fff;
+    font-family: 'supermarket';
+    font-size: 18px;
+}
+
+/*item*/
+.my-table {
+    color: #000;
+    border-color: #555;
+}
+
+input[type=checkbox] {
+    background-color: #000;
+}
+
+
+/* Search */
+div .form-group-sm .form-control {
+    display: table-cell;
+    background-color: rgba(0,0,0,0.3);
+    border-left-width: 0px;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+
+    margin-right: 10px;
+    border-radius: 0px;
+    color: #fff;
+}
+
+div > .react-bs-container-body > .table-bordered > tbody > tr > td {
+    border: 1px none #777;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    color: #eee;
+}
+
+div > .pagination > .active > a, div > .pagination > .active > span, div >  .pagination > .active > a:hover, div > .pagination > .active > span:hover, div >  .pagination > .active > a:focus, div > .pagination > .active > span:focus {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #222;
+    border-color: #222;
+}
+
+div > .pagination > li > a, div > .pagination > li > span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #000;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
 
 @keyframes fading {
     from {opacity: 0;}
@@ -105,11 +295,18 @@ BootstrapTable, tr, table, th, td {
 }
 
 @keyframes margining{
-    from {margin-left: 100%;}
-    to {margin-left: 0%;}
+    from {margin-bottom: 100px;}
+    to {margin-bottom: 0%;}
 }
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+
+@font-face {
+    font-family: 'supermarket';
+    src: url('supermarket.ttf')
+    
 }

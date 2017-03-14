@@ -129,18 +129,21 @@ export class BMI extends Component
 
 
         return (
-            <div className="App anim_all my-panel">
+            <div className=" my-container App anim_all my-panel">
                 <h1 className="my-text">{_header}</h1>
-                <h4 className="my-text">{_weight}&nbsp;&nbsp;<input type="number" className="input-text" value={this.state.weight} onChange={this.OnWeight}/>&nbsp;&nbsp;&nbsp;{_kg}</h4>
-                <h4 className="my-text">{_height}&nbsp;&nbsp;<input type="number" className="input-text" value={this.state.height} onChange={this.OnHeight}/>&nbsp;&nbsp;&nbsp;{_cm}</h4>
+                <h4 className="my-text">{_weight}&nbsp;({_kg})&nbsp;&nbsp;<input type="number" className="input-text" value={this.state.weight} onChange={this.OnWeight}/></h4>
+                <h4 className="my-text">{_height}&nbsp;({_cm})&nbsp;&nbsp;<input type="number" className="input-text" value={this.state.height} onChange={this.OnHeight}/></h4>
 
-                <button type="button" className="btn btn-success" onClick={this.OnCalculate}>{_calculate}</button>
+                <button type="button" className="btn btn-primary" onClick={this.OnCalculate}>{_calculate}</button><br/><br/>
 
                 {renderer}
-                <BootstrapTable data={products} hover={false} trClassName="my-table" headerStyle={{background: '#fff', color: '#000'}}>
-                    <TableHeaderColumn dataField="BMI" columnClassName={columnClassNameFormat} isKey={true}>{_bmi}</TableHeaderColumn>
-                    <TableHeaderColumn dataField="Result" width="100" columnClassName={columnClassNameFormat}>{_result}</TableHeaderColumn>
-                </BootstrapTable>
+                
+                <div className="my-margin-left-100 my-margin-right-100 my-padding-left-100 my-padding-right-100">
+                    <BootstrapTable data={products} hover={false} trClassName="my-table" headerStyle={{background: '#fff', color: '#000'}}>
+                        <TableHeaderColumn dataField="BMI" columnClassName={columnClassNameFormat} isKey={true}>{_bmi}</TableHeaderColumn>
+                        <TableHeaderColumn dataField="Result" width="100" columnClassName={columnClassNameFormat}>{_result}</TableHeaderColumn>
+                    </BootstrapTable>
+                </div>
             </div>
         );
     }

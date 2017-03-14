@@ -725,7 +725,7 @@ export class Calories extends Component {
 
         const options = {
             onRowDoubleClick: this.OnInsertRow,
-            clearSearch: true,
+            hideSizePerPage: true
         };
 
         const options_eat = {
@@ -738,13 +738,13 @@ export class Calories extends Component {
             mode: 'radio',
             clickToSelect: true,
             hideSelectColumn: true,
-            bgColor: "#ccc",
+            bgColor: "#222",
         };
 
         const selectRowProp = {
             mode: 'checkbox',
             clickToSelect: true,
-            bgColor: "#ccc",
+            bgColor: "#222",
         };
 
         let summary = 0;
@@ -760,12 +760,12 @@ export class Calories extends Component {
         }
 
         return (
-            <div className="App-Cal anim_all">
+            <div className="App-Cal anim_all my-container">
                 <div className="row">
 
                     {/*Table*/}
                     <div className="col-md-7 is-background">
-                        <BootstrapTable data={products} hover={false} selectRow={selectRow} search={true} options={options} pagination trClassName="my-table" headerStyle={{background: '#fff', color: '#000'}}>
+                        <BootstrapTable data={products} hover={false} selectRow={selectRow} search={true} options={options} pagination trClassName="my-table">
                             <TableHeaderColumn dataField="Name" isKey={true} dataSort={true}>{_name_header}</TableHeaderColumn>
                             <TableHeaderColumn dataField="Calories" width="100" dataSort={true} dataFormat={priceFormatter}>{_cal}</TableHeaderColumn>
                         </BootstrapTable>
@@ -773,7 +773,7 @@ export class Calories extends Component {
 
                     {/*Eat*/}
                     <div className="col-md-5">
-                        <BootstrapTable data={this.state.listEat} insertRow={true} deleteRow={ true } selectRow={ selectRowProp } options={options_eat} trClassName="my-table" headerStyle={{background: '#fff', color: '#000'}}>
+                        <BootstrapTable data={this.state.listEat} insertRow={true} deleteRow={ true } selectRow={ selectRowProp } options={options_eat} trClassName="my-table">
                             <TableHeaderColumn dataField="id" isKey={true} autoValue={true} hidden={true}>id</TableHeaderColumn>
                             <TableHeaderColumn dataField="Name" dataSort={true}>{_name}</TableHeaderColumn>
                             <TableHeaderColumn dataField="Calories" dataSort={true}>{_cal} ({summary})</TableHeaderColumn>

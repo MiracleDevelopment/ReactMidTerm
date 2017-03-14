@@ -10,7 +10,8 @@
     "react-bootstrap-table": "^3.1.1",
     "react-dom": "^15.4.2",
     "react-overlays": "^0.6.12",
-    "react-router": "^4.0.0"
+    "react-router": "^4.0.0",
+    "simple-react-bootstrap": "^0.1.18"
   },
   "scripts": {
     "start": "react-scripts start",

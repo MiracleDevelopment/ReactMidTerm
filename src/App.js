@@ -59,13 +59,13 @@ class App extends Component {
                     <div className="container-fluid my-nav">
                         <div className="" id="bs-example-navbar-collapse-1">
                             <ul className="nav navbar-nav">
-                                <li><a href="#" value="0" onClick={this.OnClickCalories}>Calories</a></li>
-                                <li><a href="#" value="1" onClick={this.OnClickBMI}>BMI</a></li>
-                                <li><a href="#" value="2" onClick={this.OnClickBMR}>BMR</a></li>
+                                <li><a href="#" className="my-text my-text-size-30" value="0" onClick={this.OnClickCalories}>Calories</a></li>
+                                <li><a href="#" className="my-text my-text-size-30" value="1" onClick={this.OnClickBMI}>BMI</a></li>
+                                <li><a href="#" className="my-text my-text-size-30" value="2" onClick={this.OnClickBMR}>BMR</a></li>
                             </ul>
                             <ul className="nav navbar-nav navbar-right">
-                                <li><a href="#" onClick={this.OnClickEN}>EN</a></li>
-                                <li><a href="#" onClick={this.OnClickTH}>TH</a></li>
+                                <li><a href="#" className="my-text my-text-size-30" onClick={this.OnClickEN}>EN</a></li>
+                                <li><a href="#" className="my-text my-text-size-30" onClick={this.OnClickTH}>TH</a></li>
                             </ul>
                         </div>
                     </div>
