@@ -41,6 +41,16 @@ export class Calories extends Component {
         this.setState({listEat: list});
     }
 
+    onChangeSceneCal = (e) => {
+        this.props.OnChangeScene(0);
+    }
+    onChangeSceneBMI = (e) => {
+        this.props.OnChangeScene(1);
+    }
+    onChangeSceneBMR = (e) => {
+        this.props.OnChangeScene(2);
+    }
+
     render() 
     {
         var products = [{Name: "กระเพาะปลา	1 ชาม	", Calories: 150  },
@@ -704,18 +714,22 @@ export class Calories extends Component {
         var _name_header;
         var _name;
         var _cal;
+        var en_filter = "";
+        var th_filter = "";
 
         if(this.props.language == "EN")
         {
             _name_header = "Name - double click to select menu"
             _name = "Name";
             _cal = "Calories";
+            en_filter = " my-dark-filter-50 ";
         }
         else
         {
             _name_header = "ชื่ออาหาร - ดับเบิ้ลคลิกเพื่อเพิ่มรายการ"
             _name = "ชื่ออาหาร";
             _cal = "พลังงาน";
+            th_filter = " my-dark-filter-50 ";
         }
 
         function priceFormatter(cell, row)
@@ -725,7 +739,8 @@ export class Calories extends Component {
 
         const options = {
             onRowDoubleClick: this.OnInsertRow,
-            hideSizePerPage: true
+            hideSizePerPage: true,
+            sizePerPage: 5
         };
 
         const options_eat = {
@@ -742,7 +757,7 @@ export class Calories extends Component {
         };
 
         const selectRowProp = {
-            mode: 'checkbox',
+            mode: 'radio',
             clickToSelect: true,
             bgColor: "#222",
         };
@@ -761,23 +776,35 @@ export class Calories extends Component {
 
         return (
             <div className="App-Cal anim_all my-container">
-                <div className="row">
+                <div className="my-navbar">
+                    <img src="./en.png" className={en_filter} style={{marginLeft:"8px", color:"#003", width:"36", boxShadow:"2px 2px 5px #333", cursor:"pointer"}} onClick={this.props.OnClickEN}/>
+                    <img src="./th.png" className={th_filter} style={{marginLeft:"8px", color:"#003", width:"36", boxShadow:"2px 2px 5px #333", cursor:"pointer"}} onClick={this.props.OnClickTH}/>
+                    <center>
+                    <span className="my-selected my-text my-border-left" value="0">Calories</span>
+                    <span className="my-unselected my-text" onClick={this.onChangeSceneBMI}>BMI</span>
+                    <span className="my-unselected my-text my-border-right" onClick={this.onChangeSceneBMR}>BMR</span>
+                    </center>
+                </div>
 
-                    {/*Table*/}
-                    <div className="col-md-7 is-background">
-                        <BootstrapTable data={products} hover={false} selectRow={selectRow} search={true} options={options} pagination trClassName="my-table">
-                            <TableHeaderColumn dataField="Name" isKey={true} dataSort={true}>{_name_header}</TableHeaderColumn>
-                            <TableHeaderColumn dataField="Calories" width="100" dataSort={true} dataFormat={priceFormatter}>{_cal}</TableHeaderColumn>
-                        </BootstrapTable>
-                    </div>
+                <div className="my-container-sub">
+                    <div className="row">
 
-                    {/*Eat*/}
-                    <div className="col-md-5">
-                        <BootstrapTable data={this.state.listEat} insertRow={true} deleteRow={ true } selectRow={ selectRowProp } options={options_eat} trClassName="my-table">
-                            <TableHeaderColumn dataField="id" isKey={true} autoValue={true} hidden={true}>id</TableHeaderColumn>
-                            <TableHeaderColumn dataField="Name" dataSort={true}>{_name}</TableHeaderColumn>
-                            <TableHeaderColumn dataField="Calories" dataSort={true}>{_cal} ({summary})</TableHeaderColumn>
-                        </BootstrapTable>
+                        {/*Table*/}
+                        <div className="col-md-7 is-background" style={{borderRight:"1px solid #fff", height:"100%"}}>
+                            <BootstrapTable data={products} hover={false} selectRow={selectRow} search={true} options={options} pagination trClassName="my-table">
+                                <TableHeaderColumn dataField="Name" isKey={true} dataSort={true}>{_name_header}</TableHeaderColumn>
+                                <TableHeaderColumn dataField="Calories" width="100" dataSort={true} dataFormat={priceFormatter}>{_cal}</TableHeaderColumn>
+                            </BootstrapTable>
+                        </div>
+
+                        {/*Eat*/}
+                        <div className="col-md-5">
+                            <BootstrapTable data={this.state.listEat} insertRow={true} deleteRow={ true } selectRow={ selectRowProp } options={options_eat} trClassName="my-table">
+                                <TableHeaderColumn dataField="id" isKey={true} autoValue={true} hidden={true}>id</TableHeaderColumn>
+                                <TableHeaderColumn dataField="Name" dataSort={true}>{_name}</TableHeaderColumn>
+                                <TableHeaderColumn dataField="Calories" dataSort={true}>{_cal} ({summary})</TableHeaderColumn>
+                            </BootstrapTable>
+                        </div>
                     </div>
                 </div>
             </div>

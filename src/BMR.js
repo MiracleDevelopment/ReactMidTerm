@@ -49,6 +49,17 @@ export class BMR extends Component
 
         this.setState({value: result.toFixed(2)});
     }
+
+    onChangeSceneCal = (e) => {
+        this.props.OnChangeScene(0);
+    }
+    onChangeSceneBMI = (e) => {
+        this.props.OnChangeScene(1);
+    }
+    onChangeSceneBMR = (e) => {
+        this.props.OnChangeScene(2);
+    }
+
     render() 
     {
         let renderer = null;
@@ -67,6 +78,8 @@ export class BMR extends Component
         var _calculate;
         var _gender;
 
+        var en_filter = "";
+        var th_filter = "";
         if(this.props.language == "EN")
         {
             _header = "BMR Calculator";
@@ -81,6 +94,7 @@ export class BMR extends Component
             _kg = "Kg.";
             _cm = "Cm.";
             _calculate = "Calculate";
+            en_filter = " my-dark-filter-50 ";
         }
         else
         {
@@ -95,6 +109,7 @@ export class BMR extends Component
             _kg = "กก.";
             _cm = "ซม.";
             _calculate = "คำนวน";
+            th_filter = " my-dark-filter-50 ";
         }
 
         if(v != 0)
@@ -103,28 +118,40 @@ export class BMR extends Component
         }
 
         return (
-            <div className="App anim_all my-panel my-container">
+            <div className="App-Cal my-container anim_all">
 
-                <h1 className="my-text">{_header}</h1>
+                <div className="my-navbar">
+                    <img src="./en.png" className={en_filter} style={{marginLeft:"8px", color:"#003", width:"36", boxShadow:"2px 2px 5px #333", cursor:"pointer"}} onClick={this.props.OnClickEN}/>
+                    <img src="./th.png" className={th_filter} style={{marginLeft:"8px", color:"#003", width:"36", boxShadow:"2px 2px 5px #333", cursor:"pointer"}} onClick={this.props.OnClickTH}/>
+                    <center>
+                        <span className="my-unselected my-text my-border-left" onClick={this.onChangeSceneCal}>Calories</span>
+                        <span className="my-unselected my-text" onClick={this.onChangeSceneBMI}>BMI</span>
+                        <span className="my-selected my-text my-border-right">BMR</span>
+                    </center>
+                </div>
 
-                <h4 className="">
-                    <span className="my-text">{_gender}</span>&nbsp;&nbsp;
+                <div className="my-contrainer-sub">
+                    <center>
+                        <h4 className="">
+                            <span className="my-text">{_gender}</span>&nbsp;&nbsp;
 
-                    <select className="my-text" style={{color:'black'}} onChange={this.OnGender}>
-                        <option value="0">{_male}</option>
-                        <option value="1">{_female}</option>
-                    </select>
+                            <select className="my-text" style={{color:'black'}} onChange={this.OnGender}>
+                                <option value="0">{_male}</option>
+                                <option value="1">{_female}</option>
+                            </select>
 
-                    <span className="my-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                </h4>
-                
-                <h4 className="my-text">{_age}&nbsp;&nbsp;<input type="number" className="input-text" value={this.state.age} onChange={this.OnAge}/>&nbsp;&nbsp;&nbsp;</h4>
-                <h4 className="my-text">{_weight}&nbsp;&nbsp;<input type="number" className="input-text" value={this.state.weight} onChange={this.OnWeight}/>&nbsp;&nbsp;&nbsp;{_kg}</h4>
-                <h4 className="my-text">{_height}&nbsp;&nbsp;<input type="number" className="input-text" value={this.state.height} onChange={this.OnHeight}/>&nbsp;&nbsp;&nbsp;{_cm}</h4>
+                            <span className="my-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        </h4>
+                        
+                        <h4 className="my-text">{_age}&nbsp;&nbsp;<input type="number" className="input-text" value={this.state.age} onChange={this.OnAge}/>&nbsp;&nbsp;&nbsp;</h4>
+                        <h4 className="my-text">{_weight}&nbsp;&nbsp;<input type="number" className="input-text" value={this.state.weight} onChange={this.OnWeight}/>&nbsp;&nbsp;&nbsp;{_kg}</h4>
+                        <h4 className="my-text">{_height}&nbsp;&nbsp;<input type="number" className="input-text" value={this.state.height} onChange={this.OnHeight}/>&nbsp;&nbsp;&nbsp;{_cm}</h4>
 
-                <button type="button" className="btn btn-primary" onClick={this.OnCalculate}>{_calculate}</button>
+                        <button type="button" className="btn btn-primary" onClick={this.OnCalculate} style={{marginBottom:"20px"}}>{_calculate}</button>
 
-                {renderer}
+                        {renderer}
+                    </center>
+                </div>
 
             </div>
         );

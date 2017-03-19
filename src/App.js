@@ -34,44 +34,30 @@ class App extends Component {
         this.setState({language: "TH"});
     }
 
+    OnChangeScene = (value) => {
+        this.setState({index: parseInt(value)});
+    }
+
     render() 
     {
         let renderer = null;
         if(this.state.index == 0)
         {
-            renderer = <Calories language={this.state.language}/>
+            renderer = <Calories language={this.state.language} OnChangeScene={this.OnChangeScene} OnClickEN={this.OnClickEN} OnClickTH={this.OnClickTH}/>
         }
         else if(this.state.index == 1)
         {
-            renderer = <BMI language={this.state.language}/>
+            renderer = <BMI language={this.state.language} OnChangeScene={this.OnChangeScene} OnClickEN={this.OnClickEN} OnClickTH={this.OnClickTH}/>
         }
         else if(this.state.index == 2)
         {
-            renderer = <BMR language={this.state.language}/>
+            renderer = <BMR language={this.state.language} OnChangeScene={this.OnChangeScene} OnClickEN={this.OnClickEN} OnClickTH={this.OnClickTH}/>
         }
 
 
         return (
 
             <div className="App">
-                {/*Nav Bar*/}
-                <nav className="">
-                    <div className="container-fluid my-nav">
-                        <div className="" id="bs-example-navbar-collapse-1">
-                            <ul className="nav navbar-nav">
-                                <li><a href="#" className="my-text my-text-size-30" value="0" onClick={this.OnClickCalories}>Calories</a></li>
-                                <li><a href="#" className="my-text my-text-size-30" value="1" onClick={this.OnClickBMI}>BMI</a></li>
-                                <li><a href="#" className="my-text my-text-size-30" value="2" onClick={this.OnClickBMR}>BMR</a></li>
-                            </ul>
-                            <ul className="nav navbar-nav navbar-right">
-                                <li><a href="#" className="my-text my-text-size-30" onClick={this.OnClickEN}>EN</a></li>
-                                <li><a href="#" className="my-text my-text-size-30" onClick={this.OnClickTH}>TH</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-
-                {/*Component Bar*/}
                 {renderer}
 
             </div>

@@ -29,6 +29,16 @@ export class BMI extends Component
         this.setState({value: result.toFixed(2)});
     }
 
+    onChangeSceneCal = (e) => {
+        this.props.OnChangeScene(0);
+    }
+    onChangeSceneBMI = (e) => {
+        this.props.OnChangeScene(1);
+    }
+    onChangeSceneBMR = (e) => {
+        this.props.OnChangeScene(2);
+    }
+
     render() 
     {
         let renderer = null;
@@ -51,6 +61,8 @@ export class BMI extends Component
         var _calculate;
         var _result;
 
+        var en_filter = "";
+        var th_filter = "";
         if(this.props.language == "EN")
         {
             _thin = "Thin";
@@ -66,6 +78,7 @@ export class BMI extends Component
             _cm = "Cm.";
             _calculate = "Calculate";
             _result = "Criterion";
+            en_filter = " my-dark-filter-50 ";
         }
         else
         {
@@ -82,6 +95,7 @@ export class BMI extends Component
             _cm = "ซม.";
             _calculate = "คำนวน";
             _result = "เกณฑ์";
+            th_filter = " my-dark-filter-50 ";
         }
 
         if(v != 0)
@@ -129,21 +143,37 @@ export class BMI extends Component
 
 
         return (
-            <div className=" my-container App anim_all my-panel">
-                <h1 className="my-text">{_header}</h1>
-                <h4 className="my-text">{_weight}&nbsp;({_kg})&nbsp;&nbsp;<input type="number" className="input-text" value={this.state.weight} onChange={this.OnWeight}/></h4>
-                <h4 className="my-text">{_height}&nbsp;({_cm})&nbsp;&nbsp;<input type="number" className="input-text" value={this.state.height} onChange={this.OnHeight}/></h4>
+            <div className="App-Cal my-container anim_all">
 
-                <button type="button" className="btn btn-primary" onClick={this.OnCalculate}>{_calculate}</button><br/><br/>
+                <div className="my-navbar">
+                    <img src="./en.png" className={en_filter} style={{marginLeft:"8px", color:"#003", width:"36", boxShadow:"2px 2px 5px #333", cursor:"pointer"}} onClick={this.props.OnClickEN}/>
+                    <img src="./th.png" className={th_filter} style={{marginLeft:"8px", color:"#003", width:"36", boxShadow:"2px 2px 5px #333", cursor:"pointer"}} onClick={this.props.OnClickTH}/>
 
-                {renderer}
-                
-                <div className="my-margin-left-100 my-margin-right-100 my-padding-left-100 my-padding-right-100">
-                    <BootstrapTable data={products} hover={false} trClassName="my-table" headerStyle={{background: '#fff', color: '#000'}}>
-                        <TableHeaderColumn dataField="BMI" columnClassName={columnClassNameFormat} isKey={true}>{_bmi}</TableHeaderColumn>
-                        <TableHeaderColumn dataField="Result" width="100" columnClassName={columnClassNameFormat}>{_result}</TableHeaderColumn>
-                    </BootstrapTable>
+                    <center>
+                        <span className="my-unselected my-text my-border-left" onClick={this.onChangeSceneCal}>Calories</span>
+                        <span className="my-selected my-text">BMI</span>
+                        <span className="my-unselected my-text my-border-right" onClick={this.onChangeSceneBMR}>BMR</span>
+                    </center>
                 </div>
+
+                <div className="my-contrainer-sub">
+                    <center>
+                        <h4 className="my-text">{_weight}&nbsp;({_kg})&nbsp;&nbsp;<input type="number" className="input-text" value={this.state.weight} onChange={this.OnWeight}/></h4>
+                        <h4 className="my-text">{_height}&nbsp;({_cm})&nbsp;&nbsp;<input type="number" className="input-text" value={this.state.height} onChange={this.OnHeight}/></h4>
+
+                        <button type="button" className="btn btn-primary" onClick={this.OnCalculate}>{_calculate}</button><br/><br/>
+
+                        {renderer}
+                    </center>
+                    
+                    <div className="my-margin-left-100 my-margin-right-100 my-padding-left-100 my-padding-right-100">
+                        <BootstrapTable data={products} hover={false} trClassName="my-table" headerStyle={{background: '#fff', color: '#000'}}>
+                            <TableHeaderColumn dataField="BMI" columnClassName={columnClassNameFormat} isKey={true}>{_bmi}</TableHeaderColumn>
+                            <TableHeaderColumn dataField="Result" width="100" columnClassName={columnClassNameFormat}>{_result}</TableHeaderColumn>
+                        </BootstrapTable>
+                    </div>
+                </div>
+
             </div>
         );
     }

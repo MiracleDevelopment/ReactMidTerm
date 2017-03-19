@@ -4,8 +4,6 @@
 
 .App-Cal{
     text-align: left;
-    padding-left: 24px;
-    padding-right: 24px;
 }
 
 .App-logo {
@@ -30,8 +28,8 @@
 }
 
 .anim_all {
-    animation-name: fading, margining;
-    animation-duration: 0.5s;
+    animation-name: fading;
+    animation-duration: 0.3s;
 }
 
 .is-background{
@@ -78,20 +76,28 @@
     text-align : right;
 }
 
-.my-container {
+.my-navbar {
+    background-color: rgba(0,0,0,0.5);
+    padding: 20px 20px 40px 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
 
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-top: 5%;
-    margin-bottom: 50px;
-
+.my-container-sub {
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
+}
 
-    background-color: rgba(0,0,0,0.6);
-    border-radius: 10px;
+.my-container {
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+
+    background-color: rgba(3,3,0,0.8);
+    border-radius: 20px;
 }
 
 .input-text, select {
@@ -107,6 +113,47 @@
 
 input[type=text], input[type=button], input[type=number] button {
     background-color: rgba(255,255,255, 1);
+}
+
+.my-dark-filter-50 {
+    filter: brightness(50%);
+}
+
+.my-unselected {
+    background-color: #fff;
+    color: #333;
+    padding: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    user-select: none;
+}
+
+.my-unselected:hover {
+    background-color: #999;
+}
+
+.my-unselected:active {
+    background-color: #666;
+}
+
+
+.my-selected {
+    background-color: #111;
+    color: #fff;
+    padding: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    user-select: none;
+}
+
+.my-border-left {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.my-border-right {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .my-padding-top-5 { padding-top: 5px; }
@@ -246,6 +293,10 @@ input[type=checkbox] {
     background-color: #000;
 }
 
+.my-font {
+    font-family: "supermarket";
+}
+
 
 /* Search */
 div .form-group-sm .form-control {
@@ -299,8 +350,8 @@ div > .pagination > li > a, div > .pagination > li > span {
 }
 
 @keyframes margining{
-    from {margin-bottom: 100px;}
-    to {margin-bottom: 0%;}
+    from {height: 0%;}
+    to {height: 100%;}
 }
 
 @keyframes App-logo-spin {
