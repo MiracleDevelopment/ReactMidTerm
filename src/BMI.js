@@ -74,8 +74,8 @@ export class BMI extends Component
             _weight = "Weight";
             _height = "Height";
             _bmi = "BMI";
-            _kg = "Kg.";
-            _cm = "Cm.";
+            _kg = "(Kg.)";
+            _cm = "(Cm.)";
             _calculate = "Calculate";
             _result = "Criterion";
             en_filter = " my-dark-filter-50 ";
@@ -91,8 +91,8 @@ export class BMI extends Component
             _weight = "น้ำหนัก";
             _height = "ส่วนสูง";
             _bmi = "ดัชนีมวลกาย";
-            _kg = "กก.";
-            _cm = "ซม.";
+            _kg = "(กก.)";
+            _cm = "(ซม.)   ";
             _calculate = "คำนวน";
             _result = "เกณฑ์";
             th_filter = " my-dark-filter-50 ";
@@ -144,22 +144,30 @@ export class BMI extends Component
 
         return (
             <div className="App-Cal my-container anim_all">
-
                 <div className="my-navbar">
-                    <img src="./en.png" className={en_filter} style={{marginLeft:"8px", color:"#003", width:"36", boxShadow:"2px 2px 5px #333", cursor:"pointer"}} onClick={this.props.OnClickEN}/>
-                    <img src="./th.png" className={th_filter} style={{marginLeft:"8px", color:"#003", width:"36", boxShadow:"2px 2px 5px #333", cursor:"pointer"}} onClick={this.props.OnClickTH}/>
-
-                    <center>
-                        <span className="my-unselected my-text my-border-left" onClick={this.onChangeSceneCal}>Calories</span>
-                        <span className="my-selected my-text">BMI</span>
-                        <span className="my-unselected my-text my-border-right" onClick={this.onChangeSceneBMR}>BMR</span>
-                    </center>
+                    <div className="row">
+                        <div className="col-md-4">
+                            <img src="./logo.png" width="64" height="64"/>
+                            <span className="my-text" style={{fontSize:"24px"}}>&nbsp;Calories Killer</span>
+                        </div>
+                        <div className="col-md-4 my-padding-top-20">
+                            <center>
+                                <span className="my-unselected my-text my-border-left" onClick={this.onChangeSceneCal}>Calories</span>
+                                <span className="my-selected my-text">BMI</span>
+                                <span className="my-unselected my-text my-border-right" onClick={this.onChangeSceneBMR}>BMR</span>
+                            </center>
+                        </div>
+                        <div className="col-md-4 my-padding-top-20">
+                            <img src="./th.png" className={th_filter} style={{float:"right", marginLeft:"8px", color:"#003", width:"36", boxShadow:"2px 2px 5px #333", cursor:"pointer"}} onClick={this.props.OnClickTH}/>
+                            <img src="./en.png" className={en_filter} style={{float:"right", marginLeft:"8px", color:"#003", width:"36", boxShadow:"2px 2px 5px #333", cursor:"pointer"}} onClick={this.props.OnClickEN}/>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="my-contrainer-sub">
                     <center>
-                        <h4 className="my-text">{_weight}&nbsp;({_kg})&nbsp;&nbsp;<input type="number" className="input-text" value={this.state.weight} onChange={this.OnWeight}/></h4>
-                        <h4 className="my-text">{_height}&nbsp;({_cm})&nbsp;&nbsp;<input type="number" className="input-text" value={this.state.height} onChange={this.OnHeight}/></h4>
+                        <h4 className="my-text">{_weight}&nbsp;{_kg}&nbsp;&emsp;<input type="number" className="input-text" value={this.state.weight} onChange={this.OnWeight}/></h4>
+                        <h4 className="my-text">{_height}&nbsp;{_cm}&emsp;<input type="number" className="input-text" value={this.state.height} onChange={this.OnHeight}/></h4>
 
                         <button type="button" className="btn btn-primary" onClick={this.OnCalculate}>{_calculate}</button><br/><br/>
 

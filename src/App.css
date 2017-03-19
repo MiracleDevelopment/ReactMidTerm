@@ -69,7 +69,7 @@
 
 .my-text {
     color: #fff;
-    font-family: 'supermarket';
+    font-family: 'Itim';
 }
 
 .my-align-right {
@@ -78,7 +78,7 @@
 
 .my-navbar {
     background-color: rgba(0,0,0,0.5);
-    padding: 20px 20px 40px 20px;
+    padding: 20px 20px 20px 20px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
@@ -279,7 +279,7 @@ div .react-bs-table {
     border: 0px solid #fff;
     background-color: rgba(0,0,0,0);
     color: #fff;
-    font-family: 'supermarket';
+    font-family: 'Itim';
     font-size: 18px;
 }
 
@@ -313,7 +313,7 @@ div .form-group-sm .form-control {
 }
 
 div > .react-bs-container-body > .table-bordered > tbody > tr > td {
-    border: 1px none #777;
+    border: 1px dotted #777;
     border-left-width: 0px;
     border-right-width: 0px;
     color: #eee;

@@ -777,13 +777,23 @@ export class Calories extends Component {
         return (
             <div className="App-Cal anim_all my-container">
                 <div className="my-navbar">
-                    <img src="./en.png" className={en_filter} style={{marginLeft:"8px", color:"#003", width:"36", boxShadow:"2px 2px 5px #333", cursor:"pointer"}} onClick={this.props.OnClickEN}/>
-                    <img src="./th.png" className={th_filter} style={{marginLeft:"8px", color:"#003", width:"36", boxShadow:"2px 2px 5px #333", cursor:"pointer"}} onClick={this.props.OnClickTH}/>
-                    <center>
-                    <span className="my-selected my-text my-border-left" value="0">Calories</span>
-                    <span className="my-unselected my-text" onClick={this.onChangeSceneBMI}>BMI</span>
-                    <span className="my-unselected my-text my-border-right" onClick={this.onChangeSceneBMR}>BMR</span>
-                    </center>
+                    <div className="row">
+                        <div className="col-md-4">
+                            <img src="./logo.png" width="64" height="64"/>
+                            <span className="my-text" style={{fontSize:"24px"}}>&nbsp;Calories Killer</span>
+                        </div>
+                        <div className="col-md-4 my-padding-top-20">
+                            <center>
+                                <span className="my-selected my-text my-border-left" value="0">Calories</span>
+                                <span className="my-unselected my-text" onClick={this.onChangeSceneBMI}>BMI</span>
+                                <span className="my-unselected my-text my-border-right" onClick={this.onChangeSceneBMR}>BMR</span>
+                            </center>
+                        </div>
+                        <div className="col-md-4 my-padding-top-20">
+                            <img src="./th.png" className={th_filter} style={{float:"right", marginLeft:"8px", color:"#003", width:"36", boxShadow:"2px 2px 5px #333", cursor:"pointer"}} onClick={this.props.OnClickTH}/>
+                            <img src="./en.png" className={en_filter} style={{float:"right", marginLeft:"8px", color:"#003", width:"36", boxShadow:"2px 2px 5px #333", cursor:"pointer"}} onClick={this.props.OnClickEN}/>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="my-container-sub">
