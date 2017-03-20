@@ -10,7 +10,7 @@ export class BMR extends Component
         value: 0,
         height: 0,
         weight: 0,
-        gender: 0,
+        gender: "Male",
         age: 0
     }
 
@@ -38,7 +38,7 @@ export class BMR extends Component
 
         var result = -1;
 
-        if(this.state.gender == 0)
+        if(this.state.gender === "Male")
         {
             result = 10 * w + 6.25 * h - 5 * a + 5;           
         }
@@ -80,7 +80,7 @@ export class BMR extends Component
 
         var en_filter = "";
         var th_filter = "";
-        if(this.props.language == "EN")
+        if(this.props.language === "EN")
         {
             _header = "BMR Calculator";
             _weight = "Weight ";
@@ -112,7 +112,7 @@ export class BMR extends Component
             th_filter = " my-dark-filter-50 ";
         }
 
-        if(v != 0)
+        if(v !== 0)
         {
             renderer = <h3 className="my-text anim_fade">{_bmr} = {this.state.value}</h3>;
         }
@@ -123,7 +123,7 @@ export class BMR extends Component
                 <div className="my-navbar">
                     <div className="row">
                         <div className="col-md-4">
-                            <img src="./logo.png" width="64" height="64"/>
+                            <img src="./logo.png" alt="Logo" width="64" height="64"/>
                             <span className="my-text" style={{fontSize:"24px"}}>&nbsp;Calories Killer</span>
                         </div>
                         <div className="col-md-4 my-padding-top-20">
@@ -134,8 +134,8 @@ export class BMR extends Component
                             </center>
                         </div>
                         <div className="col-md-4 my-padding-top-20">
-                            <img src="./th.png" className={th_filter} style={{float:"right", marginLeft:"8px", color:"#003", width:"36", boxShadow:"2px 2px 5px #333", cursor:"pointer"}} onClick={this.props.OnClickTH}/>
-                            <img src="./en.png" className={en_filter} style={{float:"right", marginLeft:"8px", color:"#003", width:"36", boxShadow:"2px 2px 5px #333", cursor:"pointer"}} onClick={this.props.OnClickEN}/>
+                            <img src="./th.png" alt="TH" className={th_filter} style={{float:"right", marginLeft:"8px", color:"#003", width:"36", boxShadow:"2px 2px 5px #333", cursor:"pointer"}} onClick={this.props.OnClickTH}/>
+                            <img src="./en.png" alt="EN" className={en_filter} style={{float:"right", marginLeft:"8px", color:"#003", width:"36", boxShadow:"2px 2px 5px #333", cursor:"pointer"}} onClick={this.props.OnClickEN}/>
                         </div>
                     </div>
                 </div>
@@ -146,8 +146,8 @@ export class BMR extends Component
                             <span className="my-text">&nbsp;&nbsp;&nbsp;&nbsp;{_gender}</span>
 
                             <select className="my-text" style={{color:'black'}} onChange={this.OnGender}>
-                                <option value="0">{_male}</option>
-                                <option value="1">{_female}</option>
+                                <option value="Male">{_male}</option>
+                                <option value="Female">{_female}</option>
                             </select>
 
                             <span className="my-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>

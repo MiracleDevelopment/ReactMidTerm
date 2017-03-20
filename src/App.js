@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import '../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css'
 import './css/bootstrap.css'
@@ -40,21 +39,21 @@ class App extends Component {
     }
 
     OnChangeScene = (value) => {
-        this.setState({index: parseInt(value)});
+        this.setState({index: parseInt(value,10)});
     }
 
     render() 
     {
         let renderer = null;
-        if(this.state.index == 0)
+        if(this.state.index === 0)
         {
             renderer = <Calories language={this.state.language} OnChangeScene={this.OnChangeScene} OnClickEN={this.OnClickEN} OnClickTH={this.OnClickTH} listEat={this.state.listEat} OnUpdateListEat={this.OnUpdateListEat}/>
         }
-        else if(this.state.index == 1)
+        else if(this.state.index === 1)
         {
             renderer = <BMI language={this.state.language} OnChangeScene={this.OnChangeScene} OnClickEN={this.OnClickEN} OnClickTH={this.OnClickTH}/>
         }
-        else if(this.state.index == 2)
+        else if(this.state.index === 2)
         {
             renderer = <BMR language={this.state.language} OnChangeScene={this.OnChangeScene} OnClickEN={this.OnClickEN} OnClickTH={this.OnClickTH}/>
         }
