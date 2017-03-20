@@ -10,11 +10,10 @@ export class Calories extends Component {
 
     state = {
         value: 0,
-        listEat: []
     }
 
     OnInsertRow = (row) => {
-        var list = this.state.listEat.slice();
+        var list = this.props.listEat.slice();
         list.push({Name: row.Name, Calories: row.Calories});
 
         for(var i = 0; i < list.length; i++)
@@ -22,11 +21,11 @@ export class Calories extends Component {
             list[i].id = i;
         }
 
-        this.setState({listEat: list});
+        this.props.OnUpdateListEat(list);
     }
 
     OnAfterDeleteRow = (row) => {
-        var list = this.state.listEat.slice();
+        var list = this.props.listEat.slice();
 
         for (var i = row.length - 1; i >= 0; i--)
         {
@@ -38,7 +37,7 @@ export class Calories extends Component {
             list[i].id = i;
         }
 
-        this.setState({listEat: list});
+        this.props.OnUpdateListEat(list);
     }
 
     onChangeSceneCal = (e) => {
@@ -763,7 +762,7 @@ export class Calories extends Component {
         };
 
         let summary = 0;
-        var list = this.state.listEat.slice();
+        var list = this.props.listEat.slice();
 
         for(var i = 0; i < list.length; i++)
         {
@@ -775,7 +774,7 @@ export class Calories extends Component {
         }
 
         return (
-            <div className="App-Cal anim_all my-container">
+            <div className="App-Cal my-container">
                 <div className="my-navbar">
                     <div className="row">
                         <div className="col-md-4">
@@ -796,7 +795,7 @@ export class Calories extends Component {
                     </div>
                 </div>
 
-                <div className="my-container-sub">
+                <div className="my-container-sub anim_all">
                     <div className="row">
 
                         {/*Table*/}
@@ -809,7 +808,7 @@ export class Calories extends Component {
 
                         {/*Eat*/}
                         <div className="col-md-5">
-                            <BootstrapTable data={this.state.listEat} insertRow={true} deleteRow={ true } selectRow={ selectRowProp } options={options_eat} trClassName="my-table">
+                            <BootstrapTable data={this.props.listEat} insertRow={true} deleteRow={ true } selectRow={ selectRowProp } options={options_eat} trClassName="my-table">
                                 <TableHeaderColumn dataField="id" isKey={true} autoValue={true} hidden={true}>id</TableHeaderColumn>
                                 <TableHeaderColumn dataField="Name" dataSort={true}>{_name}</TableHeaderColumn>
                                 <TableHeaderColumn dataField="Calories" dataSort={true}>{_cal} ({summary})</TableHeaderColumn>
