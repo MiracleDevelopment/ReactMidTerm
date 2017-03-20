@@ -26,13 +26,14 @@ export class Calories extends Component {
 
     OnAfterDeleteRow = (row) => {
         var list = this.props.listEat.slice();
+        var i = 0;
 
-        for (var i = row.length - 1; i >= 0; i--)
+        for (i = row.length - 1; i >= 0; i--)
         {
             list.splice(row[i],1);
         }
 
-        for(var i = 0; i < list.length; i++)
+        for(i = 0; i < list.length; i++)
         {
             list[i].id = i;
         }
@@ -716,7 +717,7 @@ export class Calories extends Component {
         var en_filter = "";
         var th_filter = "";
 
-        if(this.props.language == "EN")
+        if(this.props.language === "EN")
         {
             _name_header = "Name - double click to select menu"
             _name = "Name";
@@ -768,9 +769,11 @@ export class Calories extends Component {
         {
             try
             {
-                summary += parseInt(list[i].Calories);
+                summary += parseInt(list[i].Calories, 10);
             }
-            catch(err){}
+            catch(err){
+                summary += 0;
+            }
         }
 
         return (
@@ -778,7 +781,7 @@ export class Calories extends Component {
                 <div className="my-navbar">
                     <div className="row">
                         <div className="col-md-4">
-                            <img src="./logo.png" width="64" height="64"/>
+                            <img src="./logo.png" alt="Logo" width="64" height="64"/>
                             <span className="my-text" style={{fontSize:"24px"}}>&nbsp;Calories Killer</span>
                         </div>
                         <div className="col-md-4 my-padding-top-20">
@@ -789,8 +792,8 @@ export class Calories extends Component {
                             </center>
                         </div>
                         <div className="col-md-4 my-padding-top-20">
-                            <img src="./th.png" className={th_filter} style={{float:"right", marginLeft:"8px", color:"#003", width:"36", boxShadow:"2px 2px 5px #333", cursor:"pointer"}} onClick={this.props.OnClickTH}/>
-                            <img src="./en.png" className={en_filter} style={{float:"right", marginLeft:"8px", color:"#003", width:"36", boxShadow:"2px 2px 5px #333", cursor:"pointer"}} onClick={this.props.OnClickEN}/>
+                            <img src="./th.png" alt="TH" className={th_filter} style={{float:"right", marginLeft:"8px", color:"#003", width:"36", boxShadow:"2px 2px 5px #333", cursor:"pointer"}} onClick={this.props.OnClickTH}/>
+                            <img src="./en.png" alt="EN" className={en_filter} style={{float:"right", marginLeft:"8px", color:"#003", width:"36", boxShadow:"2px 2px 5px #333", cursor:"pointer"}} onClick={this.props.OnClickEN}/>
                         </div>
                     </div>
                 </div>

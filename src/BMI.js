@@ -14,11 +14,11 @@ export class BMI extends Component
     }
 
     OnWeight = (e) => {
-        this.setState({weight: parseInt(e.target.value)});
+        this.setState({weight: parseInt(e.target.value,10)});
     }
 
     OnHeight = (e) => {
-        this.setState({height: e.target.value});
+        this.setState({height: parseInt(e.target.value,10)});
     }
 
     OnCalculate = (e) => {
@@ -41,10 +41,9 @@ export class BMI extends Component
 
     render() 
     {
-        let renderer = null;
-        let status = null;
-        let idx = -1;
-        let v = this.state.value;
+        var renderer = null;
+        var idx = -1;
+        var v = this.state.value;
 
         var _thin;
         var _normal;
@@ -63,7 +62,7 @@ export class BMI extends Component
 
         var en_filter = "";
         var th_filter = "";
-        if(this.props.language == "EN")
+        if(this.props.language === "EN")
         {
             _thin = "Thin";
             _normal = "Normal";
@@ -98,31 +97,26 @@ export class BMI extends Component
             th_filter = " my-dark-filter-50 ";
         }
 
-        if(v != 0)
+        if(v !== 0)
         {
             if(v <= 18.50)
             {
-                status = _thin;
                 idx = 0;
             }
             else if(v <= 22.90)
             {
-                status = _normal;
                 idx = 1;
             }
             else if(v <= 24.90)
             {
-                status = _fat_1;
                 idx = 2;
             }
             else if(v <= 29.90)
             {
-                status = _fat_2;
                 idx = 3;
             }
             else
             {
-                status = _very_fat;
                 idx = 4;
             }
 
@@ -147,7 +141,7 @@ export class BMI extends Component
                 <div className="my-navbar">
                     <div className="row">
                         <div className="col-md-4">
-                            <img src="./logo.png" width="64" height="64"/>
+                            <img src="./logo.png" alt="Logo" width="64" height="64"/>
                             <span className="my-text" style={{fontSize:"24px"}}>&nbsp;Calories Killer</span>
                         </div>
                         <div className="col-md-4 my-padding-top-20">
@@ -158,8 +152,8 @@ export class BMI extends Component
                             </center>
                         </div>
                         <div className="col-md-4 my-padding-top-20">
-                            <img src="./th.png" className={th_filter} style={{float:"right", marginLeft:"8px", color:"#003", width:"36", boxShadow:"2px 2px 5px #333", cursor:"pointer"}} onClick={this.props.OnClickTH}/>
-                            <img src="./en.png" className={en_filter} style={{float:"right", marginLeft:"8px", color:"#003", width:"36", boxShadow:"2px 2px 5px #333", cursor:"pointer"}} onClick={this.props.OnClickEN}/>
+                            <img src="./th.png" alt="TH" className={th_filter} style={{float:"right", marginLeft:"8px", color:"#003", width:"36", boxShadow:"2px 2px 5px #333", cursor:"pointer"}} onClick={this.props.OnClickTH}/>
+                            <img src="./en.png" alt="EN" className={en_filter} style={{float:"right", marginLeft:"8px", color:"#003", width:"36", boxShadow:"2px 2px 5px #333", cursor:"pointer"}} onClick={this.props.OnClickEN}/>
                         </div>
                     </div>
                 </div>
@@ -180,7 +174,6 @@ export class BMI extends Component
                             <TableHeaderColumn dataField="Result" width="100" columnClassName={columnClassNameFormat}>{_result}</TableHeaderColumn>
                         </BootstrapTable>
                     </div>
-                    <br/>
                 </div>
 
             </div>
