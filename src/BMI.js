@@ -143,7 +143,7 @@ export class BMI extends Component
 
 
         return (
-            <div className="App-Cal my-container anim_all">
+            <div className="App-Cal my-container">
                 <div className="my-navbar">
                     <div className="row">
                         <div className="col-md-4">
@@ -164,7 +164,7 @@ export class BMI extends Component
                     </div>
                 </div>
 
-                <div className="my-contrainer-sub">
+                <div className="my-contrainer-sub anim_all">
                     <center>
                         <h4 className="my-text">{_weight}&nbsp;{_kg}&nbsp;&emsp;<input type="number" className="input-text" value={this.state.weight} onChange={this.OnWeight}/></h4>
                         <h4 className="my-text">{_height}&nbsp;{_cm}&emsp;<input type="number" className="input-text" value={this.state.height} onChange={this.OnHeight}/></h4>
@@ -180,6 +180,7 @@ export class BMI extends Component
                             <TableHeaderColumn dataField="Result" width="100" columnClassName={columnClassNameFormat}>{_result}</TableHeaderColumn>
                         </BootstrapTable>
                     </div>
+                    <br/>
                 </div>
 
             </div>

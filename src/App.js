@@ -11,7 +11,12 @@ class App extends Component {
 
     state = {
         index: 0,
-        language: "EN"
+        language: "EN",
+        listEat: []
+    }
+
+    OnUpdateListEat = (value) => {
+        this.setState({listEat: value});
     }
 
     OnClickCalories = (e) => {
@@ -43,7 +48,7 @@ class App extends Component {
         let renderer = null;
         if(this.state.index == 0)
         {
-            renderer = <Calories language={this.state.language} OnChangeScene={this.OnChangeScene} OnClickEN={this.OnClickEN} OnClickTH={this.OnClickTH}/>
+            renderer = <Calories language={this.state.language} OnChangeScene={this.OnChangeScene} OnClickEN={this.OnClickEN} OnClickTH={this.OnClickTH} listEat={this.state.listEat} OnUpdateListEat={this.OnUpdateListEat}/>
         }
         else if(this.state.index == 1)
         {

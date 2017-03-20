@@ -118,7 +118,7 @@ export class BMR extends Component
         }
 
         return (
-            <div className="App-Cal my-container anim_all">
+            <div className="App-Cal my-container">
 
                 <div className="my-navbar">
                     <div className="row">
@@ -140,7 +140,7 @@ export class BMR extends Component
                     </div>
                 </div>
 
-                <div className="my-contrainer-sub">
+                <div className="my-contrainer-sub anim_all">
                     <center>
                         <h4 className="">
                             <span className="my-text">&nbsp;&nbsp;&nbsp;&nbsp;{_gender}</span>
